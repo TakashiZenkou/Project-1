@@ -15,6 +15,7 @@ from werkzeug.utils import secure_filename
 ###
 # Routing for your application.
 ###
+MYDIR = os.path.dirname(__file__)
 
 @app.route('/')
 def home():
@@ -40,8 +41,8 @@ def create():
         Description = form.Description.data
         Photo = form.Photo.data
         Photoname = secure_filename(Photo.filename)
-        test = os.path.join(app.config['UPLOAD_FOLDER'],Photoname)
-        Photo.save(os.path.join(app.config['UPLOAD_FOLDER'],Photoname))
+        Photo.save(os.path.join(MYDIR + '/',app.config['UPLOAD_FOLDER'],Photoname))
+        print()
         property = Property(Title,NumOfBed,NumOfBath,Location,Price,Type,Description,Photoname)
         db.session.add(property)
         db.session.commit()
@@ -52,8 +53,6 @@ def create():
 @app.route('/properties')
 def properties():
     tests = Property.query.all()
-    test = os.path.join(os.getcwd(),app.config['UPLOAD_FOLDER'],tests[0].photoName)
-    print(test)
     return render_template('properties.html', tests = tests)
 
 @app.route('/properties/<propertyid>')
@@ -64,7 +63,7 @@ def property(propertyid):
 
 @app.route('/nice/<image>')
 def get_image(image):
-    return send_from_directory(os.path.join(os.getcwd(),app.config['UPLOAD_FOLDER']),image)
+    return send_from_directory(os.path.join(MYDIR + '/',app.config['UPLOAD_FOLDER']),image)
 
 
 
