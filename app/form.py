@@ -1,4 +1,3 @@
-from tkinter import Widget
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SelectField
 from wtforms.validators import DataRequired, Email
