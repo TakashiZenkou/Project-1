@@ -1,1 +1,2 @@
-web: gunicorn run:app
+release: flask db upgrade  migrations
+web: gunicorn -w 4 -b "0.0.0.0:$PORT" run:app
