@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="Tester">
+    {% include 'flash-messages.html' %}
+    <div class="property">
+        <div class="imgholder">
+            <img class="single" src="{{url_for('get_image',image=test.photoName)}}", alt="pic">
+        </div>
+        <div class="Text">
+            <p class="propertytitle">{{test.title}}</p>
+            <div class="sep">
+                <button type="button" id="price">{{"${:,.2f}".format(test.price)}}</button>
+                <button type="button" id="type">{{test.typeOfHouse}}</button>
+            </div>
+            <p class="propertydescription">{{test.description}}</p>
+            <div class="sep">
+                <p class="pack"><i class="fa-solid fa-bed"></i></i>{{test.numofBed}} Bedrooms</p>
+                <p class="pack"><i class="fa-solid fa-bath"></i>{{test.numofBath}} Bathrooms</p>
+            </div>
+            <p class="pack"><i class="fa-solid fa-location-dot"></i>{{test.location}}</p>
+            <button type="button" id="email">Email Realtor</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

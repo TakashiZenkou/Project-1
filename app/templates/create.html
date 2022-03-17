@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Add New Property</h1>
+<div class="form">
+    <form method="POST" action="/properties/create" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+    {{form.Title.label}}
+    {{form.Title(class="check")}}
+
+    {{form.Description.label}}
+    {{form.Description(class="check")}}
+    <div class="inline">
+        <p>{{form.NumOfBed.label}}</p>
+        {{form.NumOfBed(class="check")}}
+        {{form.NumOfBath.label}}
+        {{form.NumOfBath(class="check")}}
+    </div>
+    <div class="inline">
+        {{form.Price.label}}
+        {{form.Price(class="check")}}
+        {{form.Type.label}}
+        {{form.Type(class="check")}}
+    </div>
+    {{form.Location.label}}
+    {{form.Location(class="check")}}
+
+    {{form.Photo.label}}
+    <span class="validation_error">{{ ', '.join(form.Photo.errors) }}</span><br>
+    {{form.Photo}}
+    </div>
+    <button type="submit">Add Property</button>
+    </form>
+</div>
+{% endblock %}
