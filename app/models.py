@@ -7,7 +7,7 @@ class Property(db.Model):
     numofBath = db.Column(db.Integer)
     location = db.Column(db.String(100))
     price = db.Column(db.Numeric(15,2))
-    typeOfHouse = db.Column(db.String(100))
+    typeOfHouse = db.Column(db.String(10))
     description = db.Column(db.String(255))
     photoName = db.Column(db.String(100))
     

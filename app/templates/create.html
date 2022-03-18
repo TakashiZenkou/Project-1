@@ -5,27 +5,27 @@
 <div class="form">
     <form method="POST" action="/properties/create" enctype="multipart/form-data">
     {{ form.csrf_token }}
-    {{form.Title.label(class="checkers")}}
-    {{form.Title(class="check")}}
-    {{form.Description.label(class="checkers")}}
-    {{form.Description(class="check")}}
+    {{form.Title.label(class="formlabel")}}
+    {{form.Title(class="formstyle")}}
+    {{form.Description.label(class="formlabel")}}<span class="validation_error">{{ ', '.join(form.Description.errors) }}</span>
+    {{form.Description(class="formstyle")}}
     <div class="omega">
         <div class="one">
-            {{form.NumOfBed.label(class="checkers")}}
-            {{form.NumOfBed(class="check")}}
-            {{form.Price.label(class="checkers")}}
-            {{form.Price(class="check")}}
-            {{form.Location.label(class="checkers")}}
-            {{form.Location(class="check")}}
+            {{form.NumOfBed.label(class="formlabel")}}<span class="validation_error">{{ ', '.join(form.NumOfBed.errors) }}</span>
+            {{form.NumOfBed(class="formstyle")}}
+            {{form.Price.label(class="formlabel")}}<span class="validation_error">{{ ', '.join(form.Price.errors) }}</span>
+            {{form.Price(class="formstyle")}}
+            {{form.Location.label(class="formlabel")}}
+            {{form.Location(class="formstyle")}}
         </div>
         <div class="two">
-            {{form.NumOfBath.label(class="checkers")}}
-            {{form.NumOfBath(class="check")}}
-            {{form.Type.label(class="checkers")}}
-            {{form.Type(class="check", rows='50',cols='100')}}
+            {{form.NumOfBath.label(class="formlabel")}} <span class="validation_error">{{ ', '.join(form.NumOfBath.errors) }}</span>
+            {{form.NumOfBath(class="formstyle")}}
+            {{form.Type.label(class="formlabel")}}
+            {{form.Type(class="formstyle")}}
         </div>
     </div>
-    {{form.Photo.label(class="checkers")}}
+    {{form.Photo.label(class="formlabel")}}
     <span class="validation_error">{{ ', '.join(form.Photo.errors) }}</span><br>
     {{form.Photo}}
     <button type="submit" class="addprop">Add Property</button>

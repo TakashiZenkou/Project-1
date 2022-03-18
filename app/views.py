@@ -42,6 +42,8 @@ def create():
             Description = form.Description.data
             Photo = form.Photo.data
             Photoname = secure_filename(Photo.filename)
+            if len(Photoname) > 100:
+                Photoname = Photoname[-100:]
             Photo.save(os.path.join(MYDIR + '/',app.config['UPLOAD_FOLDER'],Photoname))
             property = Property(Title,NumOfBed,NumOfBath,Location,Price,Type,Description,Photoname)
             db.session.add(property)
