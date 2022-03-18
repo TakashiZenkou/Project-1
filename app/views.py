@@ -31,25 +31,24 @@ def about():
 @app.route('/properties/create', methods=['GET','POST'])
 def create():
     form = PropertyForm()
-    if request.method =="POST":
-        if form.validate_on_submit():
-            Title = form.Title.data
-            NumOfBed = form.NumOfBed.data
-            NumOfBath = form.NumOfBath.data
-            Location = form.Location.data
-            Price = form.Price.data
-            Type = form.Type.data
-            Description = form.Description.data
-            Photo = form.Photo.data
-            Photoname = secure_filename(Photo.filename)
-            if len(Photoname) > 100:
-                Photoname = Photoname[-100:]
-            Photo.save(os.path.join(MYDIR + '/',app.config['UPLOAD_FOLDER'],Photoname))
-            property = Property(Title,NumOfBed,NumOfBath,Location,Price,Type,Description,Photoname)
-            db.session.add(property)
-            db.session.commit()
-            flash("Property Successfully Added")
-            return redirect(url_for('properties'))
+    if form.validate_on_submit():
+        Title = form.Title.data
+        NumOfBed = form.NumOfBed.data
+        NumOfBath = form.NumOfBath.data
+        Location = form.Location.data
+        Price = form.Price.data
+        Type = form.Type.data
+        Description = form.Description.data
+        Photo = form.Photo.data
+        Photoname = secure_filename(Photo.filename)
+        if len(Photoname) > 100:
+            Photoname = Photoname[-100:]
+        Photo.save(os.path.join(MYDIR + '/',app.config['UPLOAD_FOLDER'],Photoname))
+        property = Property(Title,NumOfBed,NumOfBath,Location,Price,Type,Description,Photoname)
+        db.session.add(property)
+        db.session.commit()
+        flash("Property Successfully Added")
+        return redirect(url_for('properties'))
     return render_template('create.html', form=form)
 
 @app.route('/properties')
