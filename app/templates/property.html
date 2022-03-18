@@ -1,24 +1,24 @@
 {% extends "base.html" %}
 
 {% block main %}
-<div class="Tester">
+<div class="property-container">
     {% include 'flash-messages.html' %}
     <div class="property">
         <div class="imgholder">
-            <img class="single" src="{{url_for('get_image',image=test.photoName)}}", alt="pic">
+            <img class="single" src="{{url_for('get_image',image=property.photoName)}}", alt="pic">
         </div>
-        <div class="Text">
-            <p class="propertytitle">{{test.title}}</p>
-            <div class="sep">
-                <button type="button" id="price">{{"${:,.2f}".format(test.price)}}</button>
-                <button type="button" id="type">{{test.typeOfHouse}}</button>
+        <div class="property-text">
+            <p class="property-title">{{property.title}}</p>
+            <div class="seperate">
+                <button type="button" id="price">{{"${:,.0f}".format(property.price)}}</button>
+                <button type="button" id="type">{{property.typeOfHouse}}</button>
             </div>
-            <p class="propertydescription">{{test.description}}</p>
-            <div class="sep">
-                <p class="pack"><i class="fa-solid fa-bed"></i></i>{{test.numofBed}} Bedrooms</p>
-                <p class="pack"><i class="fa-solid fa-bath"></i>{{test.numofBath}} Bathrooms</p>
+            <p class="property-description">{{property.description}}</p>
+            <div class="seperate">
+                <p class="pack"><i class="fa-solid fa-bed"></i></i>{{property.numofBed}} Bedrooms</p>
+                <p class="pack"><i class="fa-solid fa-bath"></i>{{property.numofBath}} Bathrooms</p>
             </div>
-            <p class="pack"><i class="fa-solid fa-location-dot"></i>{{test.location}}</p>
+            <p class="pack"><i class="fa-solid fa-location-dot"></i>{{property.location}}</p>
             <button type="button" id="email">Email Realtor</button>
         </div>
     </div>

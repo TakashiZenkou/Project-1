@@ -14,13 +14,18 @@ p{
     height:2000px;
 }
 
-/* Property.html*/
-
-.Text{
-    margin-left: 30px;
+.bg-primary{
+    background-color: rgb(21, 184, 167);
 }
 
-.Tester{
+/* Property.html*/
+
+.property-text{
+    padding-left: 20px;
+    padding-top:10px;
+}
+
+.property-container{
     display:flex;
     align-content: center;
     justify-content: center;
@@ -31,27 +36,53 @@ p{
     background-color:white;
     display:flex;
     flex-direction: row;
-    width:700px;
-    height:350px;
+    width:850px;
+    min-height:360px;
+    position:relative;
+    border:2px solid rgb(232, 234, 237);
+}
+.seperate{
+    display:flex;
+    flex-direction: row;
+    padding-bottom: 1em;
+}
+
+.property-title{
+    margin-left: 0;
+    margin-top: 12px;
+    font-size:20px;
+    font-weight: 600;
+}
+
+.property-description{
+    font-size: medium;
+    font-weight: 400;
+    margin-left:0px;
+    padding-right:10px;
+    font-family: Helvetica, sans-serif;
+    flex-shrink: 1;
 }
 
 .pack{
     margin-bottom: 0;
     margin-left:0;
     margin-right:1em;
+    font-size:15px;
+    font-family: Helvetica, sans-serif;
 }
 
 
 .imgholder{
-    background-color: aqua;
-    height:350px;
-    width:300px;
+    height:100%;
+    width:350px;
+    flex-shrink: 0;
 }
 
 .imgholder img{
     height:100%;
-    width:300px;
+    width:100%;
     object-fit: cover;
+    overflow: hidden;
 }
 
 #price{
@@ -64,6 +95,8 @@ p{
     border-radius: 56px;
     margin-right:1em;
     font-size: 13px;
+    font-weight: 600;
+    font-family: Helvetica, sans-serif;
 }
 
 #type{
@@ -75,6 +108,8 @@ p{
     border:none;
     border-radius:50px;
     font-size: 13px;
+    font-weight: 600;
+    font-family: Helvetica, sans-serif;
 }
 
 #email{
@@ -85,27 +120,12 @@ p{
     text-align: center;
     border:none;
     border-radius: 6px;
-    margin-top: 2em;
-}
-
-.sep{
-    display:flex;
-    flex-direction: row;
+    margin-top: 1.4em;
     margin-bottom: 1em;
+    position:absolute;
+    bottom:0;
 }
 
-.propertytitle{
-    margin-left: 0;
-    margin-top: 1em;
-    font-size: large;
-    font-weight: 500;
-}
-
-.propertydescription{
-    font-size: medium;
-    font-weight: 400;
-    margin-left: 0;
-}
 
 /* Properties.html*/
 
@@ -113,7 +133,7 @@ h1{
     font-weight: 700;
 }
 
-.Testing{
+.sproperty-container{
     display:flex;
     flex-direction: column;
     height:350px;
@@ -121,7 +141,7 @@ h1{
     margin:0.5em;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0px 6px 6px 1px #888888;
+    box-shadow: 0px 3px 6px 1px #888888;
 }
 
 .propertiesimage{
@@ -140,6 +160,7 @@ h1{
     margin-bottom: 20px;
     font-size:13px;
     margin-left:1em;
+    font-family: Helvetica, sans-serif;
 }
 
 .properties{
@@ -163,10 +184,12 @@ h1{
 }
 
 .title{
+    margin-top: .5em;
     font-weight: 500;
     font-size: 16px;
     margin-bottom: 0.5px;
     margin-right: 4px;
+    font-family: Helvetica, sans-serif;
 }
 
 .location{
@@ -184,25 +207,52 @@ h1{
     display:flex;
     flex-direction: column;
     background-color: white;
-    height:550px;
+    height:600px;
     width:600px;
 }
 
 form{
+    padding-left: 20px;
     width:80%;
     display: flex;
     flex-direction: column;
 }
 
-.inline{
-    display: flex;
-    display: row;
-    margin-bottom:1em;
-    justify-content:space-between;
-}
-
 .check{
     margin-bottom: 1em;
+}
+
+.checkers{
+    font-style: Helvetica, sans-serif;
+    font-weight: 500;
+}
+.addprop{
+    background-color:rgb(41,135,205);
+    padding: 6px 20px;
+    border-radius:8px;
+    color:white;
+    font-weight:600;
+    border:none;
+    margin-top: 2em;
+    width:fit-content;
+}
+
+.one{
+    display:flex;
+    flex-direction: column;
+    width:50%;
+    margin-right: 1em;
+}
+
+.two{
+    display:flex;
+    flex-direction: column;
+    width:50%;
+}
+
+.omega{
+    display:flex;
+    flex-direction:row;
 }
 
 

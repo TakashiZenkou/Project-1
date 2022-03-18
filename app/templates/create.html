@@ -5,31 +5,30 @@
 <div class="form">
     <form method="POST" action="/properties/create" enctype="multipart/form-data">
     {{ form.csrf_token }}
-    {{form.Title.label}}
+    {{form.Title.label(class="checkers")}}
     {{form.Title(class="check")}}
-
-    {{form.Description.label}}
+    {{form.Description.label(class="checkers")}}
     {{form.Description(class="check")}}
-    <div class="inline">
-        <p>{{form.NumOfBed.label}}</p>
-        {{form.NumOfBed(class="check")}}
-        {{form.NumOfBath.label}}
-        {{form.NumOfBath(class="check")}}
+    <div class="omega">
+        <div class="one">
+            {{form.NumOfBed.label(class="checkers")}}
+            {{form.NumOfBed(class="check")}}
+            {{form.Price.label(class="checkers")}}
+            {{form.Price(class="check")}}
+            {{form.Location.label(class="checkers")}}
+            {{form.Location(class="check")}}
+        </div>
+        <div class="two">
+            {{form.NumOfBath.label(class="checkers")}}
+            {{form.NumOfBath(class="check")}}
+            {{form.Type.label(class="checkers")}}
+            {{form.Type(class="check", rows='50',cols='100')}}
+        </div>
     </div>
-    <div class="inline">
-        {{form.Price.label}}
-        {{form.Price(class="check")}}
-        {{form.Type.label}}
-        {{form.Type(class="check")}}
-    </div>
-    {{form.Location.label}}
-    {{form.Location(class="check")}}
-
-    {{form.Photo.label}}
+    {{form.Photo.label(class="checkers")}}
     <span class="validation_error">{{ ', '.join(form.Photo.errors) }}</span><br>
     {{form.Photo}}
-    </div>
-    <button type="submit">Add Property</button>
+    <button type="submit" class="addprop">Add Property</button>
     </form>
 </div>
 {% endblock %}

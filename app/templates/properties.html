@@ -4,14 +4,14 @@
 {% include 'flash-messages.html' %}
 <h1>Properties</h1>
 <div class="properties">
-{% for test in tests %}
-    <div class="Testing">
-        <img class="propertiesimage" src="{{url_for('get_image',image=test.photoName)}}", alt="pic">
-        <p class="title">{{test.title}}</p>
-        <p class="location"><i class="fa-solid fa-location-dot"></i>{{test.location}}</p>
-        <button type="button" class="price">{{"${:,.2f}".format(test.price)}}</button>
+{% for property in properties %}
+    <div class="sproperty-container">
+        <img class="propertiesimage" src="{{url_for('get_image',image=property.photoName)}}", alt="pic">
+        <p class="title">{{property.title}}</p>
+        <p class="location"><i class="fa-solid fa-location-dot"></i>{{property.location}}</p>
+        <button type="button" class="price">{{"${:,.0f}".format(property.price)}}</button>
         <div class="View">
-            <a class="viewproperty" href="{{url_for('property',propertyid=test.id)}}">View Property</a>
+            <a class="viewproperty" href="{{url_for('property',propertyid=property.propertyid)}}">View Property</a>
         </div>
     </div>
 {% endfor %}

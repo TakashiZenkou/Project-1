@@ -31,34 +31,34 @@ def about():
 @app.route('/properties/create', methods=['GET','POST'])
 def create():
     form = PropertyForm()
-    if form.validate_on_submit():
-        Title = form.Title.data
-        NumOfBed = form.NumOfBed.data
-        NumOfBath = form.NumOfBath.data
-        Location = form.Location.data
-        Price = form.Price.data
-        Type = form.Type.data
-        Description = form.Description.data
-        Photo = form.Photo.data
-        Photoname = secure_filename(Photo.filename)
-        Photo.save(os.path.join(MYDIR + '/',app.config['UPLOAD_FOLDER'],Photoname))
-        print()
-        property = Property(Title,NumOfBed,NumOfBath,Location,Price,Type,Description,Photoname)
-        db.session.add(property)
-        db.session.commit()
-        flash("Property Successfully Added")
-        return redirect(url_for('properties'))
+    if request.method =="POST":
+        if form.validate_on_submit():
+            Title = form.Title.data
+            NumOfBed = form.NumOfBed.data
+            NumOfBath = form.NumOfBath.data
+            Location = form.Location.data
+            Price = form.Price.data
+            Type = form.Type.data
+            Description = form.Description.data
+            Photo = form.Photo.data
+            Photoname = secure_filename(Photo.filename)
+            Photo.save(os.path.join(MYDIR + '/',app.config['UPLOAD_FOLDER'],Photoname))
+            property = Property(Title,NumOfBed,NumOfBath,Location,Price,Type,Description,Photoname)
+            db.session.add(property)
+            db.session.commit()
+            flash("Property Successfully Added")
+            return redirect(url_for('properties'))
     return render_template('create.html', form=form)
 
 @app.route('/properties')
 def properties():
-    tests = Property.query.all()
-    return render_template('properties.html', tests = tests)
+    properties = Property.query.all()
+    return render_template('properties.html', properties = properties)
 
 @app.route('/properties/<propertyid>')
 def property(propertyid):
-    btest = Property.query.get(propertyid)
-    return render_template('property.html',test=btest)
+    property = Property.query.get(propertyid)
+    return render_template('property.html', property=property)
 
 
 @app.route('/nice/<image>')
