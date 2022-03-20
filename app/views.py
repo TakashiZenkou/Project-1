@@ -62,7 +62,7 @@ def property(propertyid):
     return render_template('property.html', property=property)
 
 
-@app.route('/nice/<image>')
+@app.route('/property/<image>')
 def get_image(image):
     return send_from_directory(os.path.join(MYDIR + '/',app.config['UPLOAD_FOLDER']),image)
 
