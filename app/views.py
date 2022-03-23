@@ -31,6 +31,8 @@ def about():
 @app.route('/properties/create', methods=['GET','POST'])
 def create():
     form = PropertyForm()
+    print(MYDIR)
+    print(app.config["UPLOAD_FOLDER"])
     if form.validate_on_submit():
         Title = form.Title.data
         NumOfBed = form.NumOfBed.data

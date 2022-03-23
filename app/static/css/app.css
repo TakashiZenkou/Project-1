@@ -130,6 +130,12 @@ h1{
     font-weight: 700;
 }
 
+.alert{
+    font-size: 18px;
+    color: red;
+    font-weight: 700;
+}
+
 .sproperty-container{
     display:flex;
     flex-direction: column;
